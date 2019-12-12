@@ -203,4 +203,7 @@ done < "$parsed_lines"
 oc adm release new -n ocp \
 	--from-release "$release_image" \
 	--to-image "${dst_image}:${prefix}_release" \
-	$(for name in ${!override_images[*]}; do printf '%s=%s ' "$name" "${override_images[$name]}" ; done)
+	$(for name in ${!override_images[*]}; do printf '%s=%s ' "$name" "${override_images[$name]}" ; done) > oc_adm_release_new.log
+
+>&2 echo "New release image successfully pushed."
+>&2 echo 'In order to use it, run the installer after setting the environment variable `export OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE='"${dst_image}:${prefix}_release"'`.'
