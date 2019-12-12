@@ -4,12 +4,10 @@ set -Eeuo pipefail
 
 declare dst_image='' cert_file='' release_image='' prefix=''
 declare -ra images_needing_ca=(
-	'cloud-credential-operator'
-	'cloud-provider-openstack'
-	'openstack-machine-controllers'   # cluster-api-provider-openstack
-	'cluster-image-registry-operator'
-	'image-registry'
-	'kubernetes-apiserver'
+	'cloud-credential-operator'       # https://github.com/openshift/cloud-credential-operator
+	'openstack-machine-controllers'   # https://github.com/openshift/cluster-api-provider-openstack
+	'cluster-image-registry-operator' # https://github.com/openshift/cluster-image-registry-operator
+	'openshift-apiserver'             # https://github.com/openshift/openshift-apiserver
 )
 
 prefix="$(date +'%s')"
