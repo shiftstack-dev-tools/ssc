@@ -188,7 +188,7 @@ while read -r line; do
 	image_kind="${MAPFILE[1]}"
 	image_from="${MAPFILE[2]}"
 
-	image_needs_ca "$image_name" && {
+	if image_needs_ca "$image_name"; then
 		>&2 echo "Adding CA to $image_name"
 		image_override="${dst_image}:${prefix}_${image_name}"
 		>&2 echo "pulling $image_from"
@@ -196,7 +196,7 @@ while read -r line; do
 		>&2 echo "pushing $image_override"
 		docker_push "$image_override" >/dev/null
 		override_images["$image_name"]="$image_override"
-	} || true
+	fi
 done < "$parsed_lines"
 
 # Build a new release image
