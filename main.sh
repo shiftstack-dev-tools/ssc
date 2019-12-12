@@ -6,7 +6,7 @@ declare dst_image='' cert_file='' release_image='' prefix=''
 declare -ra images_needing_ca=(
 	'cloud-credential-operator'
 	'cloud-provider-openstack'
-	'cluster-api-provider-openstack'
+	'openstack-machine-controllers'   # cluster-api-provider-openstack
 	'cluster-image-registry-operator'
 	'image-registry'
 	'kubernetes-apiserver'
