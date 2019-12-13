@@ -147,11 +147,12 @@ EOF
 ### Done with declarations, start doing something
 
 # Parse flags
-while getopts i:o:f:h opt; do
+while getopts i:o:f:p:h opt; do
 	case "$opt" in
 		i) release_image="$OPTARG" ;;
 		o) dst_image="$OPTARG"     ;;
 		f) cert_file="$OPTARG"     ;;
+		p) prefix="$OPTARG"        ;;
 		h) print_help; exit 0      ;;
 		*) unknown_flag            ;;
 	esac
