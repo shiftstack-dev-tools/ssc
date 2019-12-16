@@ -176,7 +176,7 @@ release_image="${release_image:-$(get_installer_release_image)}"
 
 parsed_lines="$(mktemp)"
 collect_image_references "$release_image" > "$parsed_lines"
->&2 echo "Parsed the release data, found $(cat "$parsed_lines" | wc -l) images"
+>&2 echo "Parsed the release data, found $(wc -l < "$parsed_lines") images"
 
 declare -A override_images
 
