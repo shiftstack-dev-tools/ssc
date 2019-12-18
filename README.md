@@ -17,7 +17,7 @@ This script exists for testing purposes only and is not supported in production 
 ## Usage
 
 ```shell
-./main.sh [-i release_image] -o dst_image -f cert_file
+./ssc.sh [-i release_image] -o dst_image -f cert_file
 ```
 
 * `-i`: Specify the release image to be used in the build. By default, the image is determined using `openshift-install`, which must be in `$PATH`
